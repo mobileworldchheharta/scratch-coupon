@@ -1,0 +1,1235 @@
+<!doctype html>
+<html lang="hi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" href="data:," />
+    <title>Mobile World Scratch Coupon</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Mukta:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <style>
+      button, [role="button"], select, summary, input:not([type="checkbox"], [type="radio"]) { min-height: 2.25rem; }
+
+      :root {
+        --bg: #fff6e9;
+        --bg-deep: #ffe9c4;
+        --card: #ffffff;
+        --ink: #3a1c00;
+        --ink-soft: #7a4a12;
+        --brand: #f97316;
+        --brand-deep: #c2410c;
+        --gold: #f5b921;
+        --gold-soft: #fde68a;
+        --green: #16a34a;
+        --wa: #22a35a;
+        --line: #f3d9ae;
+        --locked-bg: #efe6da;
+        --shadow: 0 10px 24px rgba(194, 65, 12, .16);
+        --radius: 18px;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #221304;
+          --bg-deep: #2e1a05;
+          --card: #33200c;
+          --ink: #ffedd5;
+          --ink-soft: #f0c48a;
+          --brand: #fb923c;
+          --brand-deep: #f97316;
+          --gold: #fbbf24;
+          --gold-soft: #b45309;
+          --line: #5b3a14;
+          --locked-bg: #2a1a08;
+          --shadow: 0 10px 24px rgba(0,0,0,.45);
+        }
+      }
+
+      * { box-sizing: border-box; }
+      html { -webkit-text-size-adjust: 100%; }
+      body {
+        margin: 0;
+        font-family: "Mukta", system-ui, -apple-system, "Segoe UI", sans-serif;
+        color: var(--ink);
+        background:
+          radial-gradient(600px 300px at 15% -60px, rgba(245,185,33,.35), transparent 60%),
+          radial-gradient(700px 340px at 90% -80px, rgba(249,115,22,.28), transparent 60%),
+          linear-gradient(180deg, var(--bg) 0%, var(--bg-deep) 100%);
+        min-height: 100vh;
+      }
+      .wrap { max-width: 1060px; margin: 0 auto; padding: 20px 16px 48px; }
+
+      /* ---------- Header ---------- */
+      header { text-align: center; padding: 10px 0 4px; }
+      .shop-name {
+        font-family: "Baloo 2", "Mukta", sans-serif;
+        font-weight: 800;
+        font-size: clamp(2rem, 8vw, 3.4rem);
+        letter-spacing: .04em;
+        line-height: 1.05;
+        margin: 0;
+        color: var(--brand-deep);
+        cursor: pointer;
+        user-select: none;
+        -webkit-user-select: none;
+        -webkit-tap-highlight-color: transparent;
+      }
+      .shop-name .gold { color: var(--gold); text-shadow: 0 1px 0 rgba(0,0,0,.08); }
+      .tagline {
+        font-family: "Baloo 2", "Mukta", sans-serif;
+        font-size: clamp(1.15rem, 4.6vw, 1.6rem);
+        font-weight: 700;
+        margin: 6px 0 2px;
+      }
+      .subline { color: var(--ink-soft); font-size: .98rem; margin: 0; }
+      .festoon { font-size: 1.05rem; letter-spacing: .55em; color: var(--brand); margin-top: 8px; }
+
+      /* ---------- Sections / cards ---------- */
+      section.panel {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        padding: 20px 18px;
+        margin-top: 22px;
+      }
+      h2.sec-title {
+        font-family: "Baloo 2", "Mukta", sans-serif;
+        font-size: 1.35rem; margin: 0 0 4px; font-weight: 800;
+      }
+      .sec-sub { color: var(--ink-soft); margin: 0 0 14px; font-size: .95rem; }
+
+      /* ---------- Gate steps ---------- */
+      .step {
+        border: 1.5px dashed var(--line);
+        border-radius: 14px;
+        padding: 14px;
+        margin-top: 12px;
+        display: grid;
+        gap: 10px;
+      }
+      .step.done { border-style: solid; border-color: var(--green); background: color-mix(in srgb, var(--green) 7%, transparent); }
+      .step-head { display: flex; align-items: center; gap: 10px; }
+      .step-num {
+        flex: 0 0 auto; width: 34px; height: 34px; border-radius: 50%;
+        background: linear-gradient(135deg, var(--brand), var(--gold));
+        color: #fff; font-weight: 800; display: grid; place-items: center;
+        font-family: "Baloo 2", sans-serif; font-size: 1.05rem;
+        box-shadow: 0 3px 8px rgba(194,65,12,.35);
+      }
+      .step.done .step-num { background: var(--green); }
+      .step-title { font-weight: 700; font-size: 1.05rem; line-height: 1.25; }
+      .step-desc { color: var(--ink-soft); font-size: .9rem; margin: 0; }
+      .btn {
+        display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+        border: 0; border-radius: 999px; padding: 10px 20px;
+        font-family: "Baloo 2", "Mukta", sans-serif; font-weight: 700; font-size: 1rem;
+        cursor: pointer; text-decoration: none; min-height: 44px;
+        transition: transform .08s ease, filter .15s ease;
+      }
+      .btn:active { transform: scale(.97); }
+      .btn-brand { background: linear-gradient(135deg, var(--brand), var(--brand-deep)); color: #fff; box-shadow: 0 6px 14px rgba(194,65,12,.3); }
+      .btn-wa { background: var(--wa); color: #fff; box-shadow: 0 6px 14px rgba(22,163,74,.3); }
+      .btn-ig { background: linear-gradient(45deg, #f09433, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888); color: #fff; box-shadow: 0 6px 14px rgba(220,39,103,.3); }
+      .btn-ghost { background: transparent; color: var(--brand-deep); border: 1.5px solid var(--brand); }
+      .btn[disabled] { opacity: .45; pointer-events: none; }
+      .confirm {
+        display: flex; align-items: center; gap: 10px;
+        padding: 10px 12px; min-height: 44px;
+        border-radius: 10px; background: color-mix(in srgb, var(--gold) 12%, transparent);
+        font-weight: 600; cursor: pointer; font-size: .98rem;
+      }
+      .confirm input[type="checkbox"] { width: 22px; height: 22px; accent-color: var(--green); flex: 0 0 auto; }
+      .confirm input[disabled] { opacity: .4; }
+      .confirm.locked-confirm { opacity: .55; cursor: not-allowed; }
+      .honest { font-size: .82rem; color: var(--ink-soft); margin: 14px 2px 0; line-height: 1.45; }
+      .gate-progress { font-weight: 700; color: var(--brand-deep); margin-top: 12px; font-size: .95rem; }
+
+      /* ---------- Scratch area ---------- */
+      .scratch-shell { position: relative; }
+      .scratch-grid {
+        display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px;
+      }
+      @media (min-width: 760px) { .scratch-grid { grid-template-columns: repeat(5, 1fr); gap: 14px; } }
+      .scratch-shell.locked .scratch-grid { filter: blur(7px) saturate(.7); pointer-events: none; user-select: none; }
+      .lock-banner {
+        position: absolute; inset: 0; display: none; place-items: center; text-align: center; padding: 16px; z-index: 5;
+      }
+      .scratch-shell.locked .lock-banner { display: grid; }
+      .lock-banner .lock-box {
+        background: var(--card); border: 2px solid var(--gold); border-radius: 16px;
+        padding: 18px 22px; box-shadow: var(--shadow); max-width: 420px;
+      }
+      .lock-box .lock-ic { font-size: 2rem; }
+      .lock-box p { margin: 6px 0 0; font-weight: 700; font-size: 1.05rem; }
+      .lock-box small { color: var(--ink-soft); }
+
+      .card {
+        position: relative; border-radius: 14px; overflow: hidden;
+        aspect-ratio: 4 / 3.1;
+        background: linear-gradient(150deg, #fff7e0, var(--gold-soft));
+        border: 2px solid var(--gold);
+        box-shadow: 0 6px 14px rgba(194,65,12,.18);
+      }
+      .card .under {
+        position: absolute; inset: 0; display: grid; place-items: center; text-align: center;
+        padding: 10px;
+      }
+      .under .gift-emoji { font-size: 1.7rem; line-height: 1; }
+      .under .gift-name {
+        font-family: "Baloo 2", sans-serif; font-weight: 800;
+        font-size: clamp(.95rem, 3.6vw, 1.1rem); line-height: 1.2; color: var(--brand-deep);
+        margin-top: 4px;
+      }
+      .under .mystery { font-family: "Baloo 2", sans-serif; font-weight: 800; font-size: 1.6rem; color: var(--brand); }
+      .card canvas {
+        position: absolute; inset: 0; width: 100%; height: 100%;
+        touch-action: auto; pointer-events: none; cursor: default;
+        transition: opacity .6s ease;
+      }
+      .card.is-chosen { box-shadow: 0 0 0 3px var(--brand), 0 10px 22px rgba(194,65,12,.35); }
+      .card.is-chosen canvas { touch-action: none; pointer-events: auto; cursor: grab; }
+      .chosen-tag {
+        position: absolute; top: 8px; left: 50%; transform: translateX(-50%);
+        background: rgba(22,101,52,.92); color: #dcfce7; font-family: "Baloo 2", sans-serif;
+        font-weight: 800; letter-spacing: .05em; padding: 3px 12px; border-radius: 999px;
+        font-size: .76rem; display: none; z-index: 4; pointer-events: none; white-space: nowrap;
+      }
+      .card.is-chosen .chosen-tag { display: block; }
+      .slot { display: grid; gap: 8px; align-content: start; }
+      .choose-btn { width: 100%; min-height: 42px; font-size: .95rem; padding: 8px 10px; }
+      .choose-btn.chosen-state { background: var(--green); color: #fff; box-shadow: 0 4px 10px rgba(22,163,74,.3); }
+      .choose-btn.chosen-state[disabled] { opacity: 1; }
+      .choose-help {
+        background: color-mix(in srgb, var(--gold) 16%, transparent);
+        border: 1px solid var(--gold); border-radius: 12px;
+        padding: 10px 14px; font-weight: 600; font-size: .95rem; line-height: 1.45;
+        margin: 0 0 14px;
+      }
+      .card.revealed canvas { opacity: 0; pointer-events: none; }
+      .card.is-locked { filter: grayscale(.55) brightness(.92); }
+      .card.is-locked canvas { pointer-events: none; }
+      .locked-tag {
+        position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%) rotate(-10deg);
+        background: rgba(40,20,0,.82); color: #ffd98a; font-family: "Baloo 2", sans-serif;
+        font-weight: 800; letter-spacing: .12em; padding: 4px 14px; border-radius: 8px;
+        font-size: .95rem; display: none; z-index: 3; pointer-events: none;
+      }
+      .card.is-locked .locked-tag { display: block; }
+      .card-no {
+        position: absolute; top: 6px; left: 8px; z-index: 2;
+        font-size: .72rem; font-weight: 700; color: rgba(90,45,0,.75);
+        background: rgba(255,255,255,.55); padding: 1px 8px; border-radius: 999px;
+        pointer-events: none;
+      }
+      .scratch-hint { text-align: center; color: var(--ink-soft); font-size: .92rem; margin: 14px 0 0; }
+      .scratch-hint b { color: var(--brand-deep); }
+
+      /* ---------- Result ---------- */
+      .result-panel { text-align: center; border: 2px solid var(--gold); }
+      .result-panel .big-gift-emoji { font-size: 3rem; line-height: 1; }
+      .result-panel .won-label { color: var(--ink-soft); font-weight: 600; margin: 8px 0 0; }
+      .result-panel .won-gift {
+        font-family: "Baloo 2", sans-serif; font-weight: 800;
+        font-size: clamp(1.7rem, 7vw, 2.6rem); color: var(--brand-deep); margin: 2px 0 6px; line-height: 1.15;
+      }
+      .result-panel .won-msg { max-width: 520px; margin: 0 auto; line-height: 1.5; }
+      .result-actions { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 16px; }
+      .already-note {
+        display: inline-block; margin-top: 4px; background: color-mix(in srgb, var(--gold) 20%, transparent);
+        border: 1px solid var(--gold); color: var(--ink); font-weight: 700;
+        padding: 4px 14px; border-radius: 999px; font-size: .88rem;
+      }
+      .next-play { font-weight: 700; color: var(--brand-deep); margin: 14px 0 0; font-size: 1.02rem; line-height: 1.45; }
+      .countdown-pill {
+        display: inline-block; margin-top: 8px; background: color-mix(in srgb, var(--brand) 12%, transparent);
+        border: 1px solid var(--brand); color: var(--ink); font-weight: 700;
+        padding: 5px 16px; border-radius: 999px; font-size: .95rem;
+      }
+      .rule-note { text-align: center; color: var(--ink-soft); font-size: .9rem; font-weight: 600; margin: 10px 0 0; }
+
+      footer { text-align: center; color: var(--ink-soft); font-size: .9rem; margin-top: 26px; line-height: 1.6; }
+      footer a { color: var(--brand-deep); font-weight: 700; }
+
+      /* ---------- Modal (PIN / Settings) ---------- */
+      .modal-back {
+        position: fixed; inset: 0; background: rgba(30, 15, 0, .55);
+        display: none; place-items: center; z-index: 50; padding: 16px;
+      }
+      .modal-back.open { display: grid; }
+      .modal {
+        background: var(--card); color: var(--ink); border-radius: 18px; border: 1px solid var(--line);
+        max-width: 520px; width: 100%; max-height: 88vh; overflow: auto; padding: 22px 20px;
+        box-shadow: 0 24px 60px rgba(0,0,0,.35);
+      }
+      .modal h3 { font-family: "Baloo 2", sans-serif; margin: 0 0 4px; font-size: 1.3rem; }
+      .modal p { color: var(--ink-soft); margin: 0 0 12px; font-size: .92rem; line-height: 1.45; }
+      .pin-row { display: flex; gap: 8px; justify-content: center; margin: 14px 0; }
+      .pin-row input {
+        width: 52px; height: 58px; text-align: center; font-size: 1.5rem; font-weight: 800;
+        border: 2px solid var(--line); border-radius: 12px; background: var(--bg);
+        color: var(--ink); font-family: "Baloo 2", sans-serif;
+      }
+      .pin-row input:focus { outline: 2px solid var(--brand); border-color: var(--brand); }
+      .modal .btn { width: 100%; margin-top: 8px; }
+      .pin-err { color: #dc2626; font-weight: 700; text-align: center; min-height: 1.3em; font-size: .92rem; }
+      .gift-edit { display: grid; gap: 8px; margin: 10px 0 4px; }
+      .gift-edit label { display: grid; gap: 2px; font-size: .85rem; font-weight: 600; color: var(--ink-soft); }
+      .gift-edit input {
+        padding: 9px 12px; border: 1.5px solid var(--line); border-radius: 10px;
+        background: var(--bg); color: var(--ink); font-size: 1rem; font-family: inherit; min-height: 42px;
+      }
+      .settings-actions { display: grid; gap: 8px; margin-top: 16px; }
+      .btn-danger { background: #b91c1c; color: #fff; }
+      .toast {
+        position: fixed; left: 50%; bottom: 22px; transform: translateX(-50%) translateY(80px);
+        background: #2b1503; color: #ffe9c4; padding: 11px 20px; border-radius: 999px;
+        font-weight: 700; font-size: .95rem; z-index: 60; transition: transform .3s ease;
+        box-shadow: 0 10px 26px rgba(0,0,0,.35); max-width: 92vw; text-align: center;
+      }
+      .toast.show { transform: translateX(-50%) translateY(0); }
+      #confettiCanvas { position: fixed; inset: 0; pointer-events: none; z-index: 40; }
+      [hidden] { display: none !important; }
+    </style>
+  </head>
+  <body>
+    <canvas id="confettiCanvas"></canvas>
+    <div class="wrap">
+
+      <header>
+        <h1 class="shop-name" id="shopName" title="">MOBILE <span class="gold">WORLD</span></h1>
+        <p class="tagline">Scratch Karo, Gift Jeeto!</p>
+        <p class="subline">Kharidari par ek scratch coupon — ek card scratch karo, gift tumhara!</p>
+        <div class="festoon" aria-hidden="true">✦ ✦ ✦ ✦ ✦</div>
+      </header>
+
+      <!-- ===== Already played result (return visit) ===== -->
+      <section class="panel result-panel" id="alreadyPanel" hidden>
+        <span class="already-note">Tum ye gift pehle hi jeet chuke ho</span>
+        <div class="big-gift-emoji" id="alreadyEmoji">🎁</div>
+        <p class="won-label">Tumhara Gift</p>
+        <p class="won-gift" id="alreadyGift"></p>
+        <p class="won-msg" id="alreadyMsg"></p>
+        <p class="next-play" id="alreadyNextPlay"></p>
+        <p style="margin:0"><span class="countdown-pill" id="alreadyCountdown"></span></p>
+        <div class="result-actions">
+          <a class="btn btn-wa" id="alreadyWa" href="#" target="_blank" rel="noopener">WhatsApp par dikhao</a>
+          <a class="btn btn-ig" href="https://www.instagram.com/mobileworldchheharta/" target="_blank" rel="noopener">Instagram @mobileworldchheharta</a>
+        </div>
+        <p class="honest" style="text-align:center">Gift lene ke liye counter par ye screen dikhao. Ek baar khelne ke baad dobara chance 24 ghante baad milega.</p>
+      </section>
+
+      <!-- ===== Step gate ===== -->
+      <section class="panel" id="gatePanel">
+        <h2 class="sec-title">Pehle 3 Step Poore Karo</h2>
+        <p class="sec-sub">Teeno step karne ke baad hi scratch coupons unlock honge. Har step me button dabao, kaam karo, phir "Maine kar liya" par tick karo.</p>
+
+        <div class="step" id="step1">
+          <div class="step-head">
+            <span class="step-num">1</span>
+            <span class="step-title">Mobile World ka Number Save Karo</span>
+          </div>
+          <p class="step-desc">Button dabane se Rohit Saini / Mobile World ki contact file (vCard) download hogi — use apne phone me save kar lo.</p>
+          <div><button class="btn btn-brand" id="btnSaveContact" type="button">📇 Number Save Karo — Contact Download</button></div>
+          <label class="confirm locked-confirm" id="confirmWrap1">
+            <input type="checkbox" id="confirm1" disabled />
+            <span>Maine number save kar liya ✔</span>
+          </label>
+        </div>
+
+        <div class="step" id="step2">
+          <div class="step-head">
+            <span class="step-num">2</span>
+            <span class="step-title">WhatsApp Community Join Karo</span>
+          </div>
+          <p class="step-desc">Mobile World ki WhatsApp Community join karo — naye offers aur deals sabse pehle wahi milte hain.</p>
+          <div><a class="btn btn-wa" id="btnWaCommunity" href="https://chat.whatsapp.com/JFOWpwxGsHuLM4SogmP4ab" target="_blank" rel="noopener">💬 WhatsApp Community Join Karo</a></div>
+          <label class="confirm locked-confirm" id="confirmWrap2">
+            <input type="checkbox" id="confirm2" disabled />
+            <span>Maine community join kar li ✔</span>
+          </label>
+        </div>
+
+        <div class="step" id="step3">
+          <div class="step-head">
+            <span class="step-num">3</span>
+            <span class="step-title">Instagram Page Follow Karo</span>
+          </div>
+          <p class="step-desc">@mobileworldchheharta ko Instagram par follow karo — reels, offers aur naye phones ki updates ke liye.</p>
+          <div><a class="btn btn-ig" id="btnInstagram" href="https://www.instagram.com/mobileworldchheharta/" target="_blank" rel="noopener">📸 Instagram Follow Karo</a></div>
+          <label class="confirm locked-confirm" id="confirmWrap3">
+            <input type="checkbox" id="confirm3" disabled />
+            <span>Maine Instagram follow kar liya ✔</span>
+          </label>
+        </div>
+
+        <p class="gate-progress" id="gateProgress"></p>
+        <p class="honest">Note: Ye page khud verify nahi kar sakta ke number asal me save hua ya follow asal me hua — isliye aapko khud "Maine kar liya" confirm karna hota hai. Counter par staff check kar sakta hai.</p>
+      </section>
+
+      <!-- ===== Scratch area ===== -->
+      <section class="panel" id="scratchPanel">
+        <h2 class="sec-title">Apna Scratch Coupon Chuno</h2>
+        <p class="sec-sub">10 coupons me se <b>koi ek</b> card chuno aur confirm karo — uske baad wahi ek card scratch hoga, baaki 9 lock ho jayenge. Scroll karte hue galti se haath lagne se kuch nahi hoga, isliye aaram se saare card dekho aur soch samajh kar apna lucky card chuno!</p>
+        <p class="choose-help">Pehle card dekho, phir 'Ye Card Chuno' dabakar confirm karo — bina confirm kiye koi card lock nahi hoga.</p>
+
+        <div class="scratch-shell locked" id="scratchShell">
+          <div class="scratch-grid" id="scratchGrid"></div>
+          <div class="lock-banner">
+            <div class="lock-box">
+              <div class="lock-ic">🔒</div>
+              <p>Coupons abhi locked hain</p>
+              <small>Upar wale 3 step poore karo, phir coupons unlock ho jayenge.</small>
+            </div>
+          </div>
+        </div>
+        <p class="scratch-hint" id="scratchHint">Pehle kisi ek card ke neeche wala <b>"Ye Card Chuno"</b> button dabao — confirm karne ke baad hi scratch shuru hoga.</p>
+        <p class="rule-note">Ek baar khelne ke baad dobara chance 24 ghante baad milega.</p>
+      </section>
+
+      <!-- ===== Fresh result ===== -->
+      <section class="panel result-panel" id="resultPanel" hidden>
+        <div class="big-gift-emoji" id="resultEmoji">🎁</div>
+        <p class="won-label" id="resultLabel">Badhaai ho! Tumne jeeta hai</p>
+        <p class="won-gift" id="resultGift"></p>
+        <p class="won-msg" id="resultMsg"></p>
+        <div class="result-actions" id="resultActions">
+          <a class="btn btn-wa" id="resultWa" href="#" target="_blank" rel="noopener">WhatsApp par dikhao</a>
+          <a class="btn btn-ig" href="https://www.instagram.com/mobileworldchheharta/" target="_blank" rel="noopener">Instagram @mobileworldchheharta</a>
+        </div>
+        <p class="next-play" id="resultNextPlay"></p>
+        <p class="honest" style="text-align:center">Gift lene ke liye counter par ye screen dikhao. Ye result is device par save ho gaya hai. Ek baar khelne ke baad dobara chance 24 ghante baad milega.</p>
+      </section>
+
+      <footer>
+        <b>MOBILE WORLD</b> — Pratap Bazaar, Chheharta, Amritsar 143105<br />
+        Timing: 11 AM – 9 PM (Roz) &nbsp;•&nbsp; Call / WhatsApp: <a href="tel:+919592717735">95927 17735</a><br />
+        <a href="https://maps.app.goo.gl/EuW7bQib6asVea2P6" target="_blank" rel="noopener">Shop Location (Google Maps)</a>
+      </footer>
+    </div>
+
+    <!-- ===== Choose confirm modal ===== -->
+    <div class="modal-back" id="chooseModal">
+      <div class="modal" style="text-align:center">
+        <h3>Pakka Confirm Karo 🤔</h3>
+        <p id="chooseText" style="font-size:1.02rem; color:var(--ink); font-weight:600"></p>
+        <button class="btn btn-brand" id="chooseConfirm" type="button">Haan, Yehi Card Pakka</button>
+        <button class="btn btn-ghost" id="chooseCancel" type="button">Nahi, Aur Dekhta Hu</button>
+      </div>
+    </div>
+
+    <!-- ===== PIN modal ===== -->
+    <div class="modal-back" id="pinModal">
+      <div class="modal">
+        <h3 id="pinTitle">Owner PIN</h3>
+        <p id="pinDesc">Settings kholne ke liye apna 4-digit PIN dalo.</p>
+        <div class="pin-row" id="pinRow">
+          <input type="password" inputmode="numeric" maxlength="1" autocomplete="off" />
+          <input type="password" inputmode="numeric" maxlength="1" autocomplete="off" />
+          <input type="password" inputmode="numeric" maxlength="1" autocomplete="off" />
+          <input type="password" inputmode="numeric" maxlength="1" autocomplete="off" />
+        </div>
+        <div class="pin-row" id="pinRow2" hidden>
+          <input type="password" inputmode="numeric" maxlength="1" autocomplete="off" />
+          <input type="password" inputmode="numeric" maxlength="1" autocomplete="off" />
+          <input type="password" inputmode="numeric" maxlength="1" autocomplete="off" />
+          <input type="password" inputmode="numeric" maxlength="1" autocomplete="off" />
+        </div>
+        <p class="pin-err" id="pinErr"></p>
+        <button class="btn btn-brand" id="pinSubmit" type="button">Aage Badho</button>
+        <button class="btn btn-ghost" id="pinCancel" type="button">Cancel</button>
+      </div>
+    </div>
+
+    <!-- ===== Settings modal ===== -->
+    <div class="modal-back" id="settingsModal">
+      <div class="modal">
+        <h3>Owner Settings</h3>
+        <p>Yahan se 10 gifts ke naam badal sakte ho. Naye naam is device par save rahenge aur agle customer ke scratch par lagu honge.</p>
+        <div class="gift-edit" id="giftEdit"></div>
+        <button class="btn btn-brand" id="saveGifts" type="button">Gift Naam Save Karo</button>
+        <div class="settings-actions">
+          <button class="btn btn-wa" id="resetPlay" type="button">Next Customer ke liye Scratch Lock Reset Karo</button>
+          <button class="btn btn-ghost" id="resetGate" type="button">3-Step Gate Reset Karo</button>
+          <button class="btn btn-danger" id="changePin" type="button">PIN Badlo</button>
+          <button class="btn btn-ghost" id="closeSettings" type="button">Band Karo</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+    <script>
+      (function () {
+        "use strict";
+
+        var LS = {
+          gate: "mw_scratch_gate_v1",
+          play: "mw_scratch_play_v1",
+          gifts: "mw_scratch_gifts_v1",
+          pin: "mw_scratch_pin_v1"
+        };
+
+        var DEFAULT_GIFTS = [
+          "Free Tempered Glass",
+          "Airpods",
+          "Earphones",
+          "Neckband",
+          "Speaker",
+          "₹100 Discount Coupon",
+          "Free Mobile Cover",
+          "₹50 Discount Coupon",
+          "Free Back Lamination",
+          "Better Luck Next Time"
+        ];
+        var NO_WIN = "Better Luck Next Time";
+        var WA_NUMBER = "919592717735";
+        var WAIT_MS = 24 * 60 * 60 * 1000; // ek play ke baad dobara chance 24 ghante baad
+        var MONTHS_SHORT = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+        function formatNextPlayTime(ts) {
+          var d = new Date(ts);
+          var h = d.getHours();
+          var ampm = h >= 12 ? "PM" : "AM";
+          var h12 = h % 12;
+          if (h12 === 0) h12 = 12;
+          var min = d.getMinutes();
+          var minStr = (min < 10 ? "0" : "") + min;
+          return d.getDate() + " " + MONTHS_SHORT[d.getMonth()] + ", " + h12 + ":" + minStr + " " + ampm;
+        }
+        function formatRemaining(ms) {
+          if (ms <= 0) return "0 minute";
+          var totalMin = Math.ceil(ms / 60000);
+          var h = Math.floor(totalMin / 60);
+          var m = totalMin % 60;
+          if (h > 0 && m > 0) return h + " ghante " + m + " minute";
+          if (h > 0) return h + " ghante";
+          return m + " minute";
+        }
+
+        function loadJSON(key, fallback) {
+          try {
+            var v = localStorage.getItem(key);
+            return v ? JSON.parse(v) : fallback;
+          } catch (e) { return fallback; }
+        }
+        function saveJSON(key, val) {
+          try { localStorage.setItem(key, JSON.stringify(val)); } catch (e) {}
+        }
+        function getGifts() {
+          var g = loadJSON(LS.gifts, null);
+          if (Array.isArray(g) && g.length === 10 && g.every(function (x) { return typeof x === "string" && x.trim(); })) return g;
+          return DEFAULT_GIFTS.slice();
+        }
+        function isNoWin(gift) { return gift.trim().toLowerCase() === NO_WIN.toLowerCase(); }
+        function giftEmoji(gift) {
+          var g = gift.toLowerCase();
+          if (isNoWin(gift)) return "🍀";
+          if (g.indexOf("airpod") > -1) return "🎧";
+          if (g.indexOf("earphone") > -1 || g.indexOf("neckband") > -1) return "🎵";
+          if (g.indexOf("speaker") > -1) return "🔊";
+          if (g.indexOf("discount") > -1 || g.indexOf("coupon") > -1) return "🎟️";
+          if (g.indexOf("cover") > -1) return "📱";
+          if (g.indexOf("tempered") > -1 || g.indexOf("glass") > -1) return "🛡️";
+          if (g.indexOf("lamination") > -1) return "✨";
+          return "🎁";
+        }
+        function waLink(gift) {
+          var msg = "Namaste Mobile World! Maine Scratch Coupon me \"" + gift + "\" jeeta hai. Kripya mera gift de dein. Dhanyavaad!";
+          return "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(msg);
+        }
+
+        var toastTimer = null;
+        function toast(msg) {
+          var t = document.getElementById("toast");
+          t.textContent = msg;
+          t.classList.add("show");
+          clearTimeout(toastTimer);
+          toastTimer = setTimeout(function () { t.classList.remove("show"); }, 2600);
+        }
+
+        /* ================= State ================= */
+        var gate = loadJSON(LS.gate, { s1: false, s2: false, s3: false, o1: false, o2: false, o3: false });
+        var play = loadJSON(LS.play, null); // { gift, card, revealed }
+
+        var gatePanel = document.getElementById("gatePanel");
+        var scratchPanel = document.getElementById("scratchPanel");
+        var scratchShell = document.getElementById("scratchShell");
+        var resultPanel = document.getElementById("resultPanel");
+        var alreadyPanel = document.getElementById("alreadyPanel");
+
+        /* ================= vCard download ================= */
+        document.getElementById("btnSaveContact").addEventListener("click", function () {
+          var vcf = [
+            "BEGIN:VCARD",
+            "VERSION:3.0",
+            "FN:Rohit Saini",
+            "ORG:Mobile World",
+            "TITLE:Owner",
+            "TEL;TYPE=CELL,VOICE:+919592717735",
+            "URL:https://wa.me/919592717735",
+            "URL:https://www.instagram.com/mobileworldchheharta/",
+            "ADR;TYPE=WORK:;;Pratap Bazaar, Chheharta;Amritsar;;143105;India",
+            "NOTE:Mobile World - Pratap Bazaar, Chheharta, Amritsar. Timing 11 AM - 9 PM",
+            "END:VCARD"
+          ].join("\r\n");
+          var blob = new Blob([vcf], { type: "text/vcard;charset=utf-8" });
+          var url = URL.createObjectURL(blob);
+          var a = document.createElement("a");
+          a.href = url;
+          a.download = "Mobile_World_Rohit_Saini.vcf";
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+          setTimeout(function () { URL.revokeObjectURL(url); }, 1500);
+          gate.o1 = true; saveJSON(LS.gate, gate); refreshGate();
+          toast("Contact download ho gaya — ab use save karke tick karo ✔");
+        });
+        document.getElementById("btnWaCommunity").addEventListener("click", function () {
+          gate.o2 = true; saveJSON(LS.gate, gate); refreshGate();
+        });
+        document.getElementById("btnInstagram").addEventListener("click", function () {
+          gate.o3 = true; saveJSON(LS.gate, gate); refreshGate();
+        });
+
+        /* ================= Gate logic ================= */
+        var steps = [
+          { key: "s1", openKey: "o1", box: document.getElementById("confirm1"), wrap: document.getElementById("confirmWrap1"), el: document.getElementById("step1") },
+          { key: "s2", openKey: "o2", box: document.getElementById("confirm2"), wrap: document.getElementById("confirmWrap2"), el: document.getElementById("step2") },
+          { key: "s3", openKey: "o3", box: document.getElementById("confirm3"), wrap: document.getElementById("confirmWrap3"), el: document.getElementById("step3") }
+        ];
+        steps.forEach(function (st) {
+          st.box.addEventListener("change", function () {
+            gate[st.key] = st.box.checked;
+            saveJSON(LS.gate, gate);
+            refreshGate();
+          });
+        });
+
+        function gateDone() { return gate.s1 && gate.s2 && gate.s3; }
+
+        function refreshGate() {
+          var doneCount = 0;
+          steps.forEach(function (st) {
+            var opened = !!gate[st.openKey];
+            st.box.disabled = !opened && !gate[st.key];
+            st.box.checked = !!gate[st.key];
+            st.wrap.classList.toggle("locked-confirm", st.box.disabled);
+            st.el.classList.toggle("done", !!gate[st.key]);
+            if (gate[st.key]) doneCount++;
+          });
+          var prog = document.getElementById("gateProgress");
+          if (gateDone()) {
+            prog.textContent = "✔ Teeno step poore! Neeche coupons unlock ho gaye hain — apna lucky card chuno, confirm karo, phir scratch karo!";
+            scratchShell.classList.remove("locked");
+          } else {
+            prog.textContent = doneCount + " / 3 step poore hue. Baaki step karke coupons unlock karo.";
+            scratchShell.classList.add("locked");
+          }
+        }
+
+        /* ================= Scratch cards ================= */
+        var grid = document.getElementById("scratchGrid");
+        var cards = [];
+        var REVEAL_AT = 0.45;
+
+        function buildCards() {
+          grid.innerHTML = "";
+          cards = [];
+          for (var i = 0; i < 10; i++) {
+            (function (idx) {
+              var slot = document.createElement("div");
+              slot.className = "slot";
+              var card = document.createElement("div");
+              card.className = "card";
+              var under = document.createElement("div");
+              under.className = "under";
+              var mystery = document.createElement("div");
+              if (play && play.card === idx) {
+                mystery.innerHTML = '<div class="gift-emoji">' + giftEmoji(play.gift) + '</div><div class="gift-name">' + escapeHtml(play.gift) + "</div>";
+              } else {
+                mystery.innerHTML = '<div class="mystery">?</div><div class="gift-name" style="color:var(--ink-soft)">Gift Chhupa Hai</div>';
+              }
+              under.appendChild(mystery);
+              var no = document.createElement("span");
+              no.className = "card-no";
+              no.textContent = "Coupon " + (idx + 1);
+              var tag = document.createElement("span");
+              tag.className = "locked-tag";
+              tag.textContent = "LOCKED";
+              var ctag = document.createElement("span");
+              ctag.className = "chosen-tag";
+              ctag.textContent = "✔ TUMHARA CARD";
+              var canvas = document.createElement("canvas");
+              card.appendChild(under);
+              card.appendChild(no);
+              card.appendChild(tag);
+              card.appendChild(ctag);
+              card.appendChild(canvas);
+              var btn = document.createElement("button");
+              btn.type = "button";
+              btn.className = "btn btn-brand choose-btn";
+              btn.textContent = "Ye Card Chuno";
+              btn.addEventListener("click", function () { proposeChoose(idx); });
+              slot.appendChild(card);
+              slot.appendChild(btn);
+              grid.appendChild(slot);
+              var state = { el: card, canvas: canvas, ctx: null, idx: idx, btn: btn, scratching: false, revealed: false, lastCheck: 0, strokeDist: 0, moveCount: 0, rubbing: false, pending: [] };
+              cards.push(state);
+              if (play && play.card !== idx) card.classList.add("is-locked");
+              if (play && play.card === idx) card.classList.add("is-chosen");
+              if (play && play.card === idx && play.revealed) { card.classList.add("revealed"); state.revealed = true; }
+              initCanvas(state);
+              attachScratch(state);
+            })(i);
+          }
+          refreshChooseButtons();
+        }
+
+        function refreshChooseButtons() {
+          cards.forEach(function (st) {
+            if (!st.btn) return;
+            if (play) {
+              if (st.idx === play.card) {
+                st.btn.hidden = false;
+                st.btn.disabled = true;
+                st.btn.textContent = "✔ Yehi Card Chuna Gaya";
+                st.btn.classList.remove("btn-brand");
+                st.btn.classList.add("chosen-state");
+              } else {
+                st.btn.hidden = true;
+              }
+            } else {
+              st.btn.hidden = false;
+              st.btn.disabled = false;
+              st.btn.textContent = "Ye Card Chuno";
+              st.btn.classList.add("btn-brand");
+              st.btn.classList.remove("chosen-state");
+            }
+          });
+        }
+
+        function escapeHtml(s) {
+          return s.replace(/[&<>"']/g, function (c) {
+            return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+          });
+        }
+
+        function drawFoil(state) {
+          var c = state.canvas;
+          var rect = c.getBoundingClientRect();
+          if (rect.width < 10) return;
+          var dpr = Math.min(window.devicePixelRatio || 1, 2);
+          c.width = Math.round(rect.width * dpr);
+          c.height = Math.round(rect.height * dpr);
+          var ctx = c.getContext("2d");
+          state.ctx = ctx;
+          ctx.setTransform(1, 0, 0, 1, 0, 0);
+          ctx.globalCompositeOperation = "source-over";
+          var g = ctx.createLinearGradient(0, 0, c.width, c.height);
+          g.addColorStop(0, "#e8c15a");
+          g.addColorStop(0.35, "#f7dc8a");
+          g.addColorStop(0.55, "#c9971f");
+          g.addColorStop(0.75, "#f3d06b");
+          g.addColorStop(1, "#d9a92e");
+          ctx.fillStyle = g;
+          ctx.fillRect(0, 0, c.width, c.height);
+          // diagonal shine stripes
+          ctx.save();
+          ctx.globalAlpha = 0.16;
+          ctx.fillStyle = "#ffffff";
+          for (var x = -c.height; x < c.width + c.height; x += 26 * dpr) {
+            ctx.beginPath();
+            ctx.moveTo(x, 0);
+            ctx.lineTo(x + 10 * dpr, 0);
+            ctx.lineTo(x + 10 * dpr + c.height, c.height);
+            ctx.lineTo(x + c.height, c.height);
+            ctx.closePath();
+            ctx.fill();
+          }
+          ctx.restore();
+          // border
+          ctx.strokeStyle = "rgba(120,72,0,.55)";
+          ctx.lineWidth = 3 * dpr;
+          ctx.strokeRect(1.5 * dpr, 1.5 * dpr, c.width - 3 * dpr, c.height - 3 * dpr);
+          // text
+          ctx.fillStyle = "#6b3d00";
+          ctx.textAlign = "center";
+          ctx.textBaseline = "middle";
+          var fs = Math.max(13, c.width / 8.2);
+          ctx.font = "800 " + fs + "px 'Baloo 2', sans-serif";
+          ctx.fillText("SCRATCH KARO", c.width / 2, c.height / 2 - fs * 0.62);
+          ctx.font = "600 " + fs * 0.62 + "px 'Mukta', sans-serif";
+          ctx.fillStyle = "rgba(107,61,0,.8)";
+          ctx.fillText("✦ gift chhupa hai ✦", c.width / 2, c.height / 2 + fs * 0.55);
+        }
+
+        function initCanvas(state) {
+          if (state.revealed) return;
+          requestAnimationFrame(function () { drawFoil(state); });
+        }
+
+        function attachScratch(state) {
+          var c = state.canvas;
+          var last = null;
+          function pos(e) {
+            var r = c.getBoundingClientRect();
+            return { x: (e.clientX - r.left) * (c.width / r.width), y: (e.clientY - r.top) * (c.height / r.height) };
+          }
+          c.addEventListener("pointerdown", function (e) {
+            // Sirf confirm kiya hua card hi scratch hota hai. Sirf tap/touch se
+            // kuch erase nahi hota — scratch ghisne (rubbing) se hi shuru hota hai.
+            if (!gateDone() || state.revealed) return;
+            if (!play || play.card !== state.idx) return;
+            e.preventDefault();
+            try { c.setPointerCapture(e.pointerId); } catch (err) {}
+            state.scratching = true;
+            last = pos(e);
+          });
+          c.addEventListener("pointermove", function (e) {
+            if (!state.scratching || state.revealed) return;
+            e.preventDefault();
+            var p = pos(e);
+            if (last) {
+              var dx = p.x - last.x, dy = p.y - last.y;
+              state.strokeDist += Math.sqrt(dx * dx + dy * dy);
+              state.moveCount += 1;
+              if (state.rubbing) {
+                eraseSeg(state, last, p);
+              } else {
+                // Pehle kuch deliberate rubbing lazmi hai — tab tak kuch erase nahi.
+                state.pending.push({ from: last, to: p });
+                var dpr = Math.min(window.devicePixelRatio || 1, 2);
+                if (state.moveCount >= 6 && state.strokeDist >= 90 * dpr) {
+                  state.rubbing = true;
+                  state.pending.forEach(function (seg) { eraseSeg(state, seg.from, seg.to); });
+                  state.pending = [];
+                }
+              }
+            }
+            last = p;
+          });
+          function stop() { state.scratching = false; last = null; }
+          c.addEventListener("pointerup", stop);
+          c.addEventListener("pointercancel", stop);
+        }
+
+        function eraseSeg(state, a, b) {
+          var ctx = state.ctx;
+          if (!ctx) return;
+          var dpr = Math.min(window.devicePixelRatio || 1, 2);
+          ctx.globalCompositeOperation = "destination-out";
+          ctx.lineWidth = 38 * dpr;
+          ctx.lineCap = "round";
+          ctx.lineJoin = "round";
+          ctx.beginPath();
+          ctx.moveTo(a.x, a.y);
+          ctx.lineTo(b.x, b.y);
+          ctx.stroke();
+          var now = Date.now();
+          if (now - state.lastCheck > 140) {
+            state.lastCheck = now;
+            checkReveal(state);
+          }
+        }
+
+        function scratchedRatio(state) {
+          var c = state.canvas, ctx = state.ctx;
+          if (!ctx || !c.width) return 0;
+          var step = 12;
+          var img;
+          try { img = ctx.getImageData(0, 0, c.width, c.height).data; } catch (e) { return 0; }
+          var total = 0, clear = 0;
+          for (var y = 0; y < c.height; y += step) {
+            for (var x = 0; x < c.width; x += step) {
+              var a = img[(y * c.width + x) * 4 + 3];
+              total++;
+              if (a < 40) clear++;
+            }
+          }
+          return total ? clear / total : 0;
+        }
+
+        function checkReveal(state) {
+          if (state.revealed) return;
+          if (scratchedRatio(state) >= REVEAL_AT) revealCard(state);
+        }
+
+        /* ================= Choose + confirm flow ================= */
+        var chooseModal = document.getElementById("chooseModal");
+        var pendingIdx = null;
+
+        function proposeChoose(idx) {
+          if (!gateDone() || play) return;
+          pendingIdx = idx;
+          document.getElementById("chooseText").textContent =
+            "Coupon " + (idx + 1) + " hi scratch karna hai? Pakka? Ek baar confirm karne ke baad dusra card nahi milega.";
+          chooseModal.classList.add("open");
+        }
+        document.getElementById("chooseCancel").addEventListener("click", function () {
+          pendingIdx = null;
+          chooseModal.classList.remove("open");
+        });
+        document.getElementById("chooseConfirm").addEventListener("click", function () {
+          var idx = pendingIdx;
+          pendingIdx = null;
+          chooseModal.classList.remove("open");
+          if (idx === null || play) return;
+          var st = cards[idx];
+          if (st) confirmPlay(st);
+        });
+
+        function confirmPlay(state) {
+          var gifts = getGifts();
+          var gift = gifts[Math.floor(Math.random() * gifts.length)];
+          play = { gift: gift, card: state.idx, revealed: false };
+          saveJSON(LS.play, play);
+          // place gift under chosen card
+          var under = state.el.querySelector(".under");
+          under.innerHTML = '<div><div class="gift-emoji">' + giftEmoji(gift) + '</div><div class="gift-name">' + escapeHtml(gift) + "</div></div>";
+          // chosen card highlight + lock other 9
+          state.el.classList.add("is-chosen");
+          cards.forEach(function (o) {
+            if (o.idx !== state.idx) o.el.classList.add("is-locked");
+          });
+          refreshChooseButtons();
+          document.getElementById("scratchHint").innerHTML = "Pakka ho gaya! Ab <b>Coupon " + (state.idx + 1) + "</b> ko ungli ghis-ghis kar scratch karo — baaki 9 card lock ho gaye hain.";
+          toast("Coupon " + (state.idx + 1) + " confirm ✔ Ab scratch karo!");
+          state.el.scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+
+        function revealCard(state) {
+          state.revealed = true;
+          state.el.classList.add("revealed");
+          play.revealed = true;
+          if (typeof play.playedAt !== "number" || !isFinite(play.playedAt)) play.playedAt = Date.now();
+          saveJSON(LS.play, play);
+          setTimeout(function () { showResult(play.gift, false); }, 350);
+        }
+
+        /* ================= Result ================= */
+        function showResult(gift, already) {
+          var noWin = isNoWin(gift);
+          if (already) {
+            document.getElementById("alreadyGift").textContent = gift;
+            document.getElementById("alreadyEmoji").textContent = giftEmoji(gift);
+            document.getElementById("alreadyMsg").textContent = noWin
+              ? "Is baar gift nahi nikla — koi baat nahi! Agli kharidari par phir kismat aazmana. Mobile World me aane ke liye dhanyavaad!"
+              : "Counter par ye screen dikhao aur apna gift le jao. Mobile World me kharidari ke liye dhanyavaad!";
+            document.getElementById("alreadyWa").href = waLink(gift);
+            alreadyPanel.hidden = false;
+            gatePanel.hidden = true;
+            scratchPanel.hidden = true;
+            resultPanel.hidden = true;
+            startWaitTimer();
+            return;
+          }
+          document.getElementById("resultGift").textContent = gift;
+          document.getElementById("resultEmoji").textContent = giftEmoji(gift);
+          if (noWin) {
+            document.getElementById("resultLabel").textContent = "Oh! Is baar kismat saath nahi di";
+            document.getElementById("resultMsg").textContent = "Koi baat nahi — khel me haar-jeet chalti rehti hai! Agli kharidari par phir try karna. Mobile World me aane ke liye dil se dhanyavaad!";
+            document.getElementById("resultActions").hidden = true;
+          } else {
+            document.getElementById("resultLabel").textContent = "Badhaai ho! Tumne jeeta hai";
+            document.getElementById("resultMsg").textContent = "Wah! Counter par ye screen dikhao aur apna gift le jao. WhatsApp par bhi bhej sakte ho taaki counter par dikhana aasan ho.";
+            document.getElementById("resultActions").hidden = false;
+            document.getElementById("resultWa").href = waLink(gift);
+            launchConfetti();
+          }
+          resultPanel.hidden = false;
+          resultPanel.scrollIntoView({ behavior: "smooth", block: "center" });
+          startWaitTimer();
+        }
+
+        /* ================= 24-ghante wait / auto-unlock ================= */
+        var waitTimer = null;
+        function stopWaitTimer() {
+          if (waitTimer) { clearInterval(waitTimer); waitTimer = null; }
+        }
+        function startWaitTimer() {
+          stopWaitTimer();
+          updateWaitUI();
+          if (play && play.revealed) {
+            waitTimer = setInterval(updateWaitUI, 20000);
+          }
+        }
+        function updateWaitUI() {
+          if (!play || !play.revealed || typeof play.playedAt !== "number") return;
+          var nextTs = play.playedAt + WAIT_MS;
+          var remaining = nextTs - Date.now();
+          if (remaining <= 0) { unlockPlayLock(); return; }
+          var nextTxt = "Tum " + formatNextPlayTime(nextTs) + " ke baad phir khel sakte ho";
+          var cdTxt = "Phir khelne me baaki: " + formatRemaining(remaining);
+          var np = document.getElementById("alreadyNextPlay");
+          if (np) np.textContent = nextTxt;
+          var cd = document.getElementById("alreadyCountdown");
+          if (cd) cd.textContent = cdTxt;
+          var rnp = document.getElementById("resultNextPlay");
+          if (rnp) rnp.textContent = nextTxt;
+        }
+        function unlockPlayLock() {
+          // Sirf scratch/play lock khulta hai — 3-step gate, owner PIN aur
+          // custom gift naam bilkul nahi chhedte.
+          stopWaitTimer();
+          try { localStorage.removeItem(LS.play); } catch (e) {}
+          play = null;
+          alreadyPanel.hidden = true;
+          resultPanel.hidden = true;
+          gatePanel.hidden = false;
+          scratchPanel.hidden = false;
+          buildCards();
+          refreshGate();
+          document.getElementById("scratchHint").innerHTML = "Pehle kisi ek card ke neeche wala <b>\"Ye Card Chuno\"</b> button dabao — confirm karne ke baad hi scratch shuru hoga.";
+          toast("24 ghante poore! Ab tum phir khel sakte ho 🎉");
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+
+        /* ================= Confetti ================= */
+        var confettiRunning = false;
+        function launchConfetti() {
+          var cv = document.getElementById("confettiCanvas");
+          var ctx = cv.getContext("2d");
+          cv.width = window.innerWidth;
+          cv.height = window.innerHeight;
+          var colors = ["#f97316", "#f5b921", "#eab308", "#dc2743", "#22a35a", "#ffffff"];
+          var parts = [];
+          for (var i = 0; i < 160; i++) {
+            parts.push({
+              x: Math.random() * cv.width,
+              y: -20 - Math.random() * cv.height * 0.4,
+              w: 6 + Math.random() * 7,
+              h: 8 + Math.random() * 9,
+              vy: 2 + Math.random() * 3.4,
+              vx: -1.4 + Math.random() * 2.8,
+              rot: Math.random() * Math.PI,
+              vr: -0.12 + Math.random() * 0.24,
+              color: colors[i % colors.length]
+            });
+          }
+          var start = Date.now();
+          confettiRunning = true;
+          (function frame() {
+            ctx.clearRect(0, 0, cv.width, cv.height);
+            parts.forEach(function (p) {
+              p.x += p.vx; p.y += p.vy; p.rot += p.vr;
+              ctx.save();
+              ctx.translate(p.x, p.y);
+              ctx.rotate(p.rot);
+              ctx.fillStyle = p.color;
+              ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
+              ctx.restore();
+            });
+            if (Date.now() - start < 3400) {
+              requestAnimationFrame(frame);
+            } else {
+              ctx.clearRect(0, 0, cv.width, cv.height);
+              confettiRunning = false;
+            }
+          })();
+        }
+
+        /* ================= Owner settings (hidden) ================= */
+        var tapCount = 0, tapTimer = null;
+        document.getElementById("shopName").addEventListener("click", function () {
+          tapCount++;
+          clearTimeout(tapTimer);
+          tapTimer = setTimeout(function () { tapCount = 0; }, 2200);
+          if (tapCount >= 5) {
+            tapCount = 0;
+            openPin();
+          }
+        });
+
+        var pinModal = document.getElementById("pinModal");
+        var settingsModal = document.getElementById("settingsModal");
+        var pinMode = "unlock"; // unlock | set | change
+
+        function pinInputs(rowId) {
+          return Array.prototype.slice.call(document.querySelectorAll("#" + rowId + " input"));
+        }
+        function wirePinRow(rowId) {
+          var inputs = pinInputs(rowId);
+          inputs.forEach(function (inp, i) {
+            inp.addEventListener("input", function () {
+              inp.value = inp.value.replace(/\D/g, "").slice(0, 1);
+              if (inp.value && i < inputs.length - 1) inputs[i + 1].focus();
+            });
+            inp.addEventListener("keydown", function (e) {
+              if (e.key === "Backspace" && !inp.value && i > 0) inputs[i - 1].focus();
+            });
+          });
+        }
+        wirePinRow("pinRow");
+        wirePinRow("pinRow2");
+
+        function readPin(rowId) {
+          return pinInputs(rowId).map(function (i) { return i.value; }).join("");
+        }
+        function clearPins() {
+          pinInputs("pinRow").concat(pinInputs("pinRow2")).forEach(function (i) { i.value = ""; });
+          document.getElementById("pinErr").textContent = "";
+        }
+
+        function openPin(mode) {
+          pinMode = mode || (localStorage.getItem(LS.pin) ? "unlock" : "set");
+          clearPins();
+          var title = document.getElementById("pinTitle");
+          var desc = document.getElementById("pinDesc");
+          var row2 = document.getElementById("pinRow2");
+          if (pinMode === "set" || pinMode === "change") {
+            title.textContent = pinMode === "change" ? "Naya PIN Banao" : "Owner PIN Banao";
+            desc.textContent = "Pehli baar settings khul rahi hai — apna 4-digit PIN banao aur dobara dal kar confirm karo. Ye PIN is device par save rahega.";
+            row2.hidden = false;
+          } else {
+            title.textContent = "Owner PIN";
+            desc.textContent = "Settings kholne ke liye apna 4-digit PIN dalo.";
+            row2.hidden = true;
+          }
+          pinModal.classList.add("open");
+          setTimeout(function () { pinInputs("pinRow")[0].focus(); }, 80);
+        }
+        function closePin() { pinModal.classList.remove("open"); }
+
+        document.getElementById("pinCancel").addEventListener("click", closePin);
+        document.getElementById("pinSubmit").addEventListener("click", function () {
+          var err = document.getElementById("pinErr");
+          var pin = readPin("pinRow");
+          if (pinMode === "set" || pinMode === "change") {
+            var pin2 = readPin("pinRow2");
+            if (pin.length !== 4) { err.textContent = "PIN 4-digit ka hona chahiye."; return; }
+            if (pin !== pin2) { err.textContent = "Dono PIN match nahi hue — dobara dalo."; return; }
+            try { localStorage.setItem(LS.pin, pin); } catch (e) {}
+            closePin();
+            toast("PIN set ho gaya ✔");
+            openSettings();
+            return;
+          }
+          var saved = null;
+          try { saved = localStorage.getItem(LS.pin); } catch (e) {}
+          if (pin === saved) {
+            closePin();
+            openSettings();
+          } else {
+            err.textContent = "Galat PIN — dobara try karo.";
+            pinInputs("pinRow").forEach(function (i) { i.value = ""; });
+            pinInputs("pinRow")[0].focus();
+          }
+        });
+
+        function openSettings() {
+          var gifts = getGifts();
+          var wrap = document.getElementById("giftEdit");
+          wrap.innerHTML = "";
+          gifts.forEach(function (g, i) {
+            var lab = document.createElement("label");
+            lab.textContent = "Gift " + (i + 1);
+            var inp = document.createElement("input");
+            inp.type = "text";
+            inp.value = g;
+            inp.maxLength = 60;
+            lab.appendChild(inp);
+            wrap.appendChild(lab);
+          });
+          settingsModal.classList.add("open");
+        }
+        function closeSettings() { settingsModal.classList.remove("open"); }
+        document.getElementById("closeSettings").addEventListener("click", closeSettings);
+
+        document.getElementById("saveGifts").addEventListener("click", function () {
+          var inputs = document.querySelectorAll("#giftEdit input");
+          var names = [];
+          for (var i = 0; i < inputs.length; i++) {
+            var v = inputs[i].value.trim();
+            if (!v) { toast("Gift " + (i + 1) + " ka naam khaali hai — pehle bharo."); return; }
+            names.push(v);
+          }
+          saveJSON(LS.gifts, names);
+          toast("Gift naam save ho gaye ✔ Agle scratch par naye naam lagu honge.");
+          closeSettings();
+        });
+
+        document.getElementById("resetPlay").addEventListener("click", function () {
+          stopWaitTimer(); // owner reset 24-ghante wait ko turant override karta hai
+          try { localStorage.removeItem(LS.play); } catch (e) {}
+          play = null;
+          alreadyPanel.hidden = true;
+          resultPanel.hidden = true;
+          gatePanel.hidden = false;
+          scratchPanel.hidden = false;
+          buildCards();
+          refreshGate();
+          document.getElementById("scratchHint").innerHTML = "Pehle kisi ek card ke neeche wala <b>\"Ye Card Chuno\"</b> button dabao — confirm karne ke baad hi scratch shuru hoga.";
+          toast("Scratch lock reset ✔ Next customer khel sakta hai.");
+          closeSettings();
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+
+        document.getElementById("resetGate").addEventListener("click", function () {
+          gate = { s1: false, s2: false, s3: false, o1: false, o2: false, o3: false };
+          saveJSON(LS.gate, gate);
+          gatePanel.hidden = false;
+          scratchPanel.hidden = false;
+          refreshGate();
+          toast("3-step gate reset ✔ Customer ko phir se teeno step karne honge.");
+          closeSettings();
+        });
+
+        document.getElementById("changePin").addEventListener("click", function () {
+          closeSettings();
+          openPin("change");
+        });
+
+        [pinModal, settingsModal, chooseModal].forEach(function (m) {
+          m.addEventListener("click", function (e) {
+            if (e.target === m) {
+              m.classList.remove("open");
+              if (m === chooseModal) pendingIdx = null;
+            }
+          });
+        });
+
+        /* ================= Resize: redraw unplayed foils ================= */
+        var resizeTimer = null;
+        window.addEventListener("resize", function () {
+          clearTimeout(resizeTimer);
+          resizeTimer = setTimeout(function () {
+            cards.forEach(function (st) {
+              if (!st.revealed && !(play && play.card === st.idx)) drawFoil(st);
+              else if (!st.revealed) { /* chosen card mid-scratch: keep progress */ }
+            });
+          }, 250);
+        });
+
+        /* ================= Init ================= */
+        // 24-ghante auto-reset: purana play check karo.
+        // - Timestamp na ho (is update se pehle ka play): abhi ka time stamp kar do,
+        //   taaki lock is pehli load ke 24 ghante baad khule — na turant, na hamesha ke liye.
+        // - 24 ghante beet gaye hon: sirf play lock clear karo; gate, PIN aur
+        //   gift naam waise ke waise rehte hain.
+        var unlockedOnLoad = false;
+        if (play && play.revealed) {
+          if (typeof play.playedAt !== "number" || !isFinite(play.playedAt)) {
+            play.playedAt = Date.now();
+            saveJSON(LS.play, play);
+          } else if (Date.now() - play.playedAt >= WAIT_MS) {
+            try { localStorage.removeItem(LS.play); } catch (e) {}
+            play = null;
+            unlockedOnLoad = true;
+          }
+        }
+        buildCards();
+        refreshGate();
+        if (play && play.revealed) {
+          showResult(play.gift, true);
+        } else if (play && !play.revealed) {
+          document.getElementById("scratchHint").innerHTML = "Tumne <b>Coupon " + (play.card + 1) + "</b> confirm kiya tha — usi card ko ungli ghis-ghis kar scratch karo, baaki 9 lock hain.";
+        }
+        if (unlockedOnLoad) {
+          toast("24 ghante poore ho gaye — ab tum phir se khel sakte ho! 🎉");
+        }
+      })();
+    </script>
+  </body>
+</html>
