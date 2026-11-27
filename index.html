@@ -446,7 +446,7 @@
     <div class="modal-back" id="settingsModal">
       <div class="modal">
         <h3>Owner Settings</h3>
-        <p>Yahan se 10 gifts ke naam badal sakte ho. Naye naam is device par save rahenge aur agle customer ke scratch par lagu honge.</p>
+        <p>Yahan se gifts ke naam badlo aur Save karo. Naye gifts turant har customer ke phone par lagu ho jayenge.</p>
         <div class="gift-edit" id="giftEdit"></div>
         <button class="btn btn-brand" id="saveGifts" type="button">Gift Naam Save Karo</button>
         <div class="settings-actions">
@@ -517,7 +517,25 @@
         function saveJSON(key, val) {
           try { localStorage.setItem(key, JSON.stringify(val)); } catch (e) {}
         }
+        var API_URL = "https://script.google.com/macros/s/AKfycbxXPpGXwSLMlfPWcu7AOpHEMcLovgPrkCE84GY7AbGbm-DDzapru0iI46d4meZKKPPjSQ/exec";
+        var REMOTE = loadJSON("mw_scratch_remote_v1", null);
+        function setRemote(g) {
+          if (Array.isArray(g) && g.length) { REMOTE = g; saveJSON("mw_scratch_remote_v1", g); }
+        }
+        function loadRemote() {
+          try {
+            fetch(API_URL + "?t=" + Date.now(), { cache: "no-store" }).then(function (r) { return r.json(); })
+              .then(function (j) { if (j && j.ok) setRemote(j.gifts); }).catch(function () {});
+          } catch (e) {}
+        }
+        function apiPost(body, cb) {
+          fetch(API_URL, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(body) })
+            .then(function (r) { return r.json(); }).then(cb)
+            .catch(function () { cb({ ok: false, error: "Net/server problem" }); });
+        }
+        loadRemote();
         function getGifts() {
+          if (Array.isArray(REMOTE) && REMOTE.length) return REMOTE.slice();
           var g = loadJSON(LS.gifts, null);
           if (Array.isArray(g) && g.length === 10 && g.every(function (x) { return typeof x === "string" && x.trim(); })) return g;
           return DEFAULT_GIFTS.slice();
@@ -1103,6 +1121,8 @@
             var pin2 = readPin("pinRow2");
             if (pin.length !== 4) { err.textContent = "PIN 4-digit ka hona chahiye."; return; }
             if (pin !== pin2) { err.textContent = "Dono PIN match nahi hue — dobara dalo."; return; }
+            var oldPin = null; try { oldPin = localStorage.getItem(LS.pin); } catch (e) {}
+            if (pinMode === "change" && oldPin && oldPin !== pin) apiPost({ action: "pin", pin: oldPin, newPin: pin }, function () {});
             try { localStorage.setItem(LS.pin, pin); } catch (e) {}
             closePin();
             toast("PIN set ho gaya ✔");
@@ -1148,9 +1168,16 @@
             if (!v) { toast("Gift " + (i + 1) + " ka naam khaali hai — pehle bharo."); return; }
             names.push(v);
           }
-          saveJSON(LS.gifts, names);
-          toast("Gift naam save ho gaye ✔ Agle scratch par naye naam lagu honge.");
-          closeSettings();
+          var btn = document.getElementById("saveGifts");
+          var pin = ""; try { pin = localStorage.getItem(LS.pin) || ""; } catch (e) {}
+          btn.disabled = true; btn.textContent = "Save ho raha hai...";
+          apiPost({ action: "save", pin: pin, gifts: names }, function (r) {
+            btn.disabled = false; btn.textContent = "Gift Naam Save Karo";
+            if (!r || !r.ok) { toast("Save nahi hua: " + ((r && r.error) || "dobara try karo")); return; }
+            setRemote(r.gifts); saveJSON(LS.gifts, names);
+            toast("Gifts save ho gaye ✔ Sab customers ko naye gifts dikhenge.");
+            closeSettings();
+          });
         });
 
         document.getElementById("resetPlay").addEventListener("click", function () {
