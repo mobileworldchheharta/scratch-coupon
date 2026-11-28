@@ -392,7 +392,7 @@
       <section class="panel" id="scratchPanel">
         <h2 class="sec-title">Apna Scratch Coupon Chuno</h2>
         <p class="sec-sub">Choose any 1 Scratch Card</p>
-        <p class="choose-help">Pehle card dekho, phir 'Ye Card Chuno' dabakar confirm karo — bina confirm kiye koi card lock nahi hoga.</p>
+        <p class="choose-help">Card ke neeche 'Click Here' dabao, phir confirm karo.</p>
 
         <div class="scratch-shell locked" id="scratchShell">
           <div class="scratch-grid" id="scratchGrid"></div>
@@ -404,7 +404,7 @@
             </div>
           </div>
         </div>
-        <p class="scratch-hint" id="scratchHint">Pehle kisi ek card ke neeche wala <b>"Ye Card Chuno"</b> button dabao — confirm karne ke baad hi scratch shuru hoga.</p>
+        <p class="scratch-hint" id="scratchHint">Kisi ek card ke neeche <b>"Click Here"</b> dabao.</p>
         <p class="rule-note">Ek baar khelne ke baad dobara chance 24 ghante baad milega.</p>
       </section>
 
@@ -715,7 +715,7 @@
               var btn = document.createElement("button");
               btn.type = "button";
               btn.className = "btn btn-brand choose-btn";
-              btn.textContent = "Ye Card Chuno";
+              btn.textContent = "Click Here";
               btn.addEventListener("click", function () { proposeChoose(idx); });
               slot.appendChild(card);
               slot.appendChild(btn);
@@ -748,7 +748,7 @@
             } else {
               st.btn.hidden = false;
               st.btn.disabled = false;
-              st.btn.textContent = "Ye Card Chuno";
+              st.btn.textContent = "Click Here";
               st.btn.classList.add("btn-brand");
               st.btn.classList.remove("chosen-state");
             }
@@ -1026,7 +1026,7 @@
           scratchPanel.hidden = false;
           buildCards();
           refreshGate();
-          document.getElementById("scratchHint").innerHTML = "Pehle kisi ek card ke neeche wala <b>\"Ye Card Chuno\"</b> button dabao — confirm karne ke baad hi scratch shuru hoga.";
+          document.getElementById("scratchHint").innerHTML = "Kisi ek card ke neeche <b>\"Click Here\"</b> dabao.";
           toast("24 ghante poore! Ab tum phir khel sakte ho 🎉");
           window.scrollTo({ top: 0, behavior: "smooth" });
         }
@@ -1205,7 +1205,7 @@
           scratchPanel.hidden = false;
           buildCards();
           refreshGate();
-          document.getElementById("scratchHint").innerHTML = "Pehle kisi ek card ke neeche wala <b>\"Ye Card Chuno\"</b> button dabao — confirm karne ke baad hi scratch shuru hoga.";
+          document.getElementById("scratchHint").innerHTML = "Kisi ek card ke neeche <b>\"Click Here\"</b> dabao.";
           toast("Scratch lock reset ✔ Next customer khel sakta hai.");
           closeSettings();
           window.scrollTo({ top: 0, behavior: "smooth" });
