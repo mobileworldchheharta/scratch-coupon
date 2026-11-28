@@ -291,7 +291,8 @@
       .toast.show { transform: translateX(-50%) translateY(0); }
       #confettiCanvas { position: fixed; inset: 0; pointer-events: none; z-index: 40; }
       [hidden] { display: none !important; }
-    </style>
+      #pinModal, #settingsModal { display: none !important; }
+</style>
   </head>
   <body>
     <canvas id="confettiCanvas"></canvas>
@@ -1052,16 +1053,7 @@
         }
 
         /* ================= Owner settings (hidden) ================= */
-        var tapCount = 0, tapTimer = null;
-        document.getElementById("shopName").addEventListener("click", function () {
-          tapCount++;
-          clearTimeout(tapTimer);
-          tapTimer = setTimeout(function () { tapCount = 0; }, 2200);
-          if (tapCount >= 5) {
-            tapCount = 0;
-            openPin();
-          }
-        });
+        /* Owner settings ab sirf MW Owner app me hain (customer page se hata diya). */
 
         var pinModal = document.getElementById("pinModal");
         var settingsModal = document.getElementById("settingsModal");
