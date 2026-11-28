@@ -101,6 +101,14 @@
       .sec-sub { color: var(--ink-soft); margin: 0 0 14px; font-size: .95rem; }
 
       /* ---------- Gate steps ---------- */
+      .steps-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 8px; }
+      .steps-grid .step { margin-top: 0 !important; padding: 10px !important; gap: 6px !important; align-content: start; }
+      .steps-grid .step-num { width: 26px !important; height: 26px !important; font-size: .9rem !important; }
+      .steps-grid .step-title { font-size: .9rem !important; }
+      .steps-grid .step-head { gap: 6px !important; }
+      .steps-grid .btn { width: 100%; padding: 7px 8px !important; font-size: .85rem !important; min-height: 36px !important; }
+      .steps-grid .confirm { min-height: 34px !important; font-size: .82rem; gap: 6px !important; padding: 6px 8px !important; margin: 0 !important; }
+      .steps-grid .confirm input[type="checkbox"] { width: 18px !important; height: 18px !important; }
       .step {
         border: 1.5px dashed var(--line);
         border-radius: 14px;
@@ -323,50 +331,61 @@
 
       <!-- ===== Step gate ===== -->
       <section class="panel" id="gatePanel">
-        <h2 class="sec-title">Pehle 3 Step Poore Karo</h2>
-        <p class="sec-sub">Teeno step karne ke baad hi scratch coupons unlock honge. Har step me button dabao, kaam karo, phir "Maine kar liya" par tick karo.</p>
+        <h2 class="sec-title">Pehle 4 Step Poore Karo</h2>
+        <p class="sec-sub">Button dabao, kaam karo, phir ✔ tick karo. Chaaro step ke baad coupons khulenge.</p>
 
+        <div class="steps-grid">
         <div class="step" id="step1">
           <div class="step-head">
             <span class="step-num">1</span>
-            <span class="step-title">Mobile World ka Number Save Karo</span>
+            <span class="step-title">Number Save Karo</span>
           </div>
-          <p class="step-desc">Button dabane se Rohit Saini / Mobile World ki contact file (vCard) download hogi — use apne phone me save kar lo.</p>
-          <div><button class="btn btn-brand" id="btnSaveContact" type="button">📇 Number Save Karo — Contact Download</button></div>
+          <div><button class="btn btn-brand" id="btnSaveContact" type="button">📇 Number Save Karo</button></div>
           <label class="confirm locked-confirm" id="confirmWrap1">
             <input type="checkbox" id="confirm1" disabled />
-            <span>Maine number save kar liya ✔</span>
+            <span>Save kar liya</span>
           </label>
         </div>
 
         <div class="step" id="step2">
           <div class="step-head">
             <span class="step-num">2</span>
-            <span class="step-title">WhatsApp Community Join Karo</span>
+            <span class="step-title">WhatsApp Community</span>
           </div>
-          <p class="step-desc">Mobile World ki WhatsApp Community join karo — naye offers aur deals sabse pehle wahi milte hain.</p>
-          <div><a class="btn btn-wa" id="btnWaCommunity" href="https://chat.whatsapp.com/JFOWpwxGsHuLM4SogmP4ab" target="_blank" rel="noopener">💬 WhatsApp Community Join Karo</a></div>
+          <div><a class="btn btn-wa" id="btnWaCommunity" href="https://chat.whatsapp.com/JFOWpwxGsHuLM4SogmP4ab" target="_blank" rel="noopener">💬 Join Karo</a></div>
           <label class="confirm locked-confirm" id="confirmWrap2">
             <input type="checkbox" id="confirm2" disabled />
-            <span>Maine community join kar li ✔</span>
+            <span>Join kar liya</span>
           </label>
         </div>
 
         <div class="step" id="step3">
           <div class="step-head">
             <span class="step-num">3</span>
-            <span class="step-title">Instagram Page Follow Karo</span>
+            <span class="step-title">Instagram Follow</span>
           </div>
-          <p class="step-desc">@mobileworldchheharta ko Instagram par follow karo — reels, offers aur naye phones ki updates ke liye.</p>
-          <div><a class="btn btn-ig" id="btnInstagram" href="https://www.instagram.com/mobileworldchheharta/" target="_blank" rel="noopener">📸 Instagram Follow Karo</a></div>
+          <div><a class="btn btn-ig" id="btnInstagram" href="https://www.instagram.com/mobileworldchheharta/" target="_blank" rel="noopener">📸 Follow Karo</a></div>
           <label class="confirm locked-confirm" id="confirmWrap3">
             <input type="checkbox" id="confirm3" disabled />
-            <span>Maine Instagram follow kar liya ✔</span>
+            <span>Follow kar liya</span>
           </label>
         </div>
 
+        <div class="step" id="step4">
+          <div class="step-head">
+            <span class="step-num">4</span>
+            <span class="step-title">Mobile World App</span>
+          </div>
+          <div><a class="btn btn-brand" id="btnApp" href="https://mobileworldchheharta.github.io/app/" target="_blank" rel="noopener">📲 App Download</a></div>
+          <label class="confirm locked-confirm" id="confirmWrap4">
+            <input type="checkbox" id="confirm4" disabled />
+            <span>Download kar liya</span>
+          </label>
+        </div>
+        </div>
+
         <p class="gate-progress" id="gateProgress"></p>
-        <p class="honest">Teeno steps poore karne ke baad hi coupons khulenge.</p>
+        
       </section>
 
       <!-- ===== Scratch area ===== -->
@@ -381,7 +400,7 @@
             <div class="lock-box">
               <div class="lock-ic">🔒</div>
               <p>Coupons abhi locked hain</p>
-              <small>Upar wale 3 step poore karo, phir coupons unlock ho jayenge.</small>
+              <small>Upar wale 4 step poore karo, phir coupons unlock ho jayenge.</small>
             </div>
           </div>
         </div>
@@ -452,7 +471,7 @@
         <button class="btn btn-brand" id="saveGifts" type="button">Gift Naam Save Karo</button>
         <div class="settings-actions">
           <button class="btn btn-wa" id="resetPlay" type="button">Next Customer ke liye Scratch Lock Reset Karo</button>
-          <button class="btn btn-ghost" id="resetGate" type="button">3-Step Gate Reset Karo</button>
+          <button class="btn btn-ghost" id="resetGate" type="button">4-Step Gate Reset Karo</button>
           <button class="btn btn-danger" id="changePin" type="button">PIN Badlo</button>
           <button class="btn btn-ghost" id="closeSettings" type="button">Band Karo</button>
         </div>
@@ -572,7 +591,7 @@
         }
 
         /* ================= State ================= */
-        var gate = loadJSON(LS.gate, { s1: false, s2: false, s3: false, o1: false, o2: false, o3: false });
+        var gate = loadJSON(LS.gate, { s1: false, s2: false, s3: false, s4: false, o1: false, o2: false, o3: false, o4: false });
         var play = loadJSON(LS.play, null); // { gift, card, revealed }
 
         var gatePanel = document.getElementById("gatePanel");
@@ -614,12 +633,16 @@
         document.getElementById("btnInstagram").addEventListener("click", function () {
           gate.o3 = true; saveJSON(LS.gate, gate); refreshGate();
         });
+        document.getElementById("btnApp").addEventListener("click", function () {
+          gate.o4 = true; saveJSON(LS.gate, gate); refreshGate();
+        });
 
         /* ================= Gate logic ================= */
         var steps = [
           { key: "s1", openKey: "o1", box: document.getElementById("confirm1"), wrap: document.getElementById("confirmWrap1"), el: document.getElementById("step1") },
           { key: "s2", openKey: "o2", box: document.getElementById("confirm2"), wrap: document.getElementById("confirmWrap2"), el: document.getElementById("step2") },
-          { key: "s3", openKey: "o3", box: document.getElementById("confirm3"), wrap: document.getElementById("confirmWrap3"), el: document.getElementById("step3") }
+          { key: "s3", openKey: "o3", box: document.getElementById("confirm3"), wrap: document.getElementById("confirmWrap3"), el: document.getElementById("step3") },
+          { key: "s4", openKey: "o4", box: document.getElementById("confirm4"), wrap: document.getElementById("confirmWrap4"), el: document.getElementById("step4") }
         ];
         steps.forEach(function (st) {
           st.box.addEventListener("change", function () {
@@ -629,7 +652,7 @@
           });
         });
 
-        function gateDone() { return gate.s1 && gate.s2 && gate.s3; }
+        function gateDone() { return gate.s1 && gate.s2 && gate.s3 && gate.s4; }
 
         function refreshGate() {
           var doneCount = 0;
@@ -643,10 +666,10 @@
           });
           var prog = document.getElementById("gateProgress");
           if (gateDone()) {
-            prog.textContent = "✔ Teeno step poore! Neeche coupons unlock ho gaye hain — apna lucky card chuno, confirm karo, phir scratch karo!";
+            prog.textContent = "✔ Chaaro step poore! Neeche coupons unlock ho gaye hain — apna lucky card chuno, confirm karo, phir scratch karo!";
             scratchShell.classList.remove("locked");
           } else {
-            prog.textContent = doneCount + " / 3 step poore hue. Baaki step karke coupons unlock karo.";
+            prog.textContent = doneCount + " / 4 step poore hue. Baaki step karke coupons unlock karo.";
             scratchShell.classList.add("locked");
           }
         }
@@ -1189,12 +1212,12 @@
         });
 
         document.getElementById("resetGate").addEventListener("click", function () {
-          gate = { s1: false, s2: false, s3: false, o1: false, o2: false, o3: false };
+          gate = { s1: false, s2: false, s3: false, s4: false, o1: false, o2: false, o3: false, o4: false };
           saveJSON(LS.gate, gate);
           gatePanel.hidden = false;
           scratchPanel.hidden = false;
           refreshGate();
-          toast("3-step gate reset ✔ Customer ko phir se teeno step karne honge.");
+          toast("4-step gate reset ✔ Customer ko phir se chaaro step karne honge.");
           closeSettings();
         });
 
